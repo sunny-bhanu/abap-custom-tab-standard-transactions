@@ -33,8 +33,8 @@ In ME21N the GUI status is owned by `SAPLMEGUI`; a plain push button on a custom
 
 ```abap
 PROCESS AFTER INPUT.
- MODULE exit_0111 AT EXIT-COMMAND. " fires before standard PAI, for type-E fcodes only
- ...
+  MODULE exit_0111 AT EXIT-COMMAND.   " fires before standard PAI, for type-E fcodes only
+  ...
 ```
 
 Exit-command modules run **before** field transport and before the standard program's PAI, so the popup can be opened without the standard logic consuming the OK code. (For ME51N the BAdI's `EXECUTE` method receives the function code directly, so this trick is only needed on the screen-exit route.)
