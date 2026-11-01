@@ -1,7 +1,7 @@
 "! <p class="shorttext synchronized">Custom "Stock" tab in ME51N/ME52N/ME53N item detail</p>
-"! BAdI ME_GUI_PO_CUST — registers a customer subscreen on the
+"! BAdI ME_GUI_PO_CUST - registers a customer subscreen on the
 "! item-detail tab strip of the Enjoy purchasing transactions.
-"! The same BAdI serves ME21N–ME23N; this implementation is
+"! The same BAdI serves ME21N to ME23N; this implementation is
 "! filtered to purchase requisitions via the view name.
 "!
 "! Data flow:

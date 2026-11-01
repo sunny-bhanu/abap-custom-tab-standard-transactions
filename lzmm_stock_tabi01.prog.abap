@@ -34,7 +34,7 @@ DATA: gs_ctx       TYPE ty_ctx,
 *----------------------------------------------------------------------*
 MODULE status_0100 OUTPUT.
   " Pick up the context parked by the BAdI (ID 'BAN' for PR,
-  " 'BES' for PO) — see ZCL_IM_ME_GUI_STOCK_TAB.
+  " 'BES' for PO) - see ZCL_IM_ME_GUI_STOCK_TAB.
   IMPORT ctx = gs_ctx FROM MEMORY ID 'BAN'.
   IF sy-subrc <> 0.
     CLEAR gs_ctx.
