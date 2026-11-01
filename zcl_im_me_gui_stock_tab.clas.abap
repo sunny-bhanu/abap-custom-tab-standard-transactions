@@ -71,7 +71,11 @@ CLASS zcl_im_me_gui_stock_tab IMPLEMENTATION.
     ENDIF.
 
     DATA lo_item TYPE REF TO if_purchase_requisition_item.
-    mmpur_dynamic_cast lo_item im_model.      " MM macro: safe cast
+    TRY.
+        lo_item ?= im_model.                  " the model is the PR item here
+      CATCH cx_sy_move_cast_error.
+        RETURN.
+    ENDTRY.
     IF lo_item IS NOT BOUND.
       RETURN.
     ENDIF.

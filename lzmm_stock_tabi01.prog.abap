@@ -30,6 +30,22 @@ DATA: gs_ctx       TYPE ty_ctx,
       ok_code      TYPE sy-ucomm.
 
 *----------------------------------------------------------------------*
+* Close handler for the dialog box
+*----------------------------------------------------------------------*
+CLASS lcl_handler DEFINITION.
+  PUBLIC SECTION.
+    CLASS-METHODS on_close
+      FOR EVENT close OF cl_gui_dialogbox_container
+      IMPORTING sender.
+ENDCLASS.
+
+CLASS lcl_handler IMPLEMENTATION.
+  METHOD on_close.
+    sender->set_visible( abap_false ).
+  ENDMETHOD.
+ENDCLASS.
+
+*----------------------------------------------------------------------*
 * PBO
 *----------------------------------------------------------------------*
 MODULE status_0100 OUTPUT.
@@ -128,19 +144,3 @@ FORM read_stock USING iv_matnr TYPE matnr
     ORDER BY s~storagelocation
     INTO CORRESPONDING FIELDS OF TABLE @gt_stock.
 ENDFORM.
-
-*----------------------------------------------------------------------*
-* Close handler for the dialog box
-*----------------------------------------------------------------------*
-CLASS lcl_handler DEFINITION.
-  PUBLIC SECTION.
-    CLASS-METHODS on_close
-      FOR EVENT close OF cl_gui_dialogbox_container
-      IMPORTING sender.
-ENDCLASS.
-
-CLASS lcl_handler IMPLEMENTATION.
-  METHOD on_close.
-    sender->set_visible( abap_false ).
-  ENDMETHOD.
-ENDCLASS.
